@@ -14,7 +14,7 @@ Once downloaded create a folder in the root folder named: `dataset` and put the 
 ```
 hr_employee_performance/
 |── dataset/
-|   |── Extended_Employee_Performance_and_Productivity_Data.csv*
+|   |── Extended_Employee_Performance_and_Productivity_Data.csv
 │── fastapi/
 │   │── app/
 │   │   ├── api.py
