@@ -11,6 +11,7 @@ The dataset can be downloaded here:
 Once downloaded create a folder in the root folder named: `dataset` and put the csv file within.
 
 # File Structure
+<div>
 hr_employee_performance/
 |── dataset/
 |   |── Extended_Employee_Performance_and_Productivity_Data.csv*
@@ -40,6 +41,7 @@ hr_employee_performance/
 ├── README.md
 ├── setup.cfg
 ├── setup.py
+</div>
 
 # References
 Mexwell. (2024, September 4). 👩🏽 💻 Employee Performance and Productivity Data. Kaggle. https://www.kaggle.com/datasets/mexwell/employee-performance-and-productivity-data
