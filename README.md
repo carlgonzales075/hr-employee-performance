@@ -11,7 +11,7 @@ This project requires Docker to run.
 The dataset can be downloaded here:
 - https://www.kaggle.com/datasets/mexwell/employee-performance-and-productivity-data
   
-Once downloaded create a folder in the root folder named: `dataset` and put the csv file within.
+Once downloaded create a folder in the root folder named: `dataset` and put the .csv file within.
 
 # File Structure
 ```
@@ -50,9 +50,8 @@ Access the project root folder using bash and then run:
 ```
 docker-compose up -d --build
 ```
-This should create the necessary containers and create the bucket via `minio_init.sh`.
+This should create the necessary containers and will automatically create the S3 bucket via `minio_init.sh`.
 
 
 # References
 Mexwell. (2024, September 4). 👩🏽 💻 Employee Performance and Productivity Data. Kaggle. https://www.kaggle.com/datasets/mexwell/employee-performance-and-productivity-data
-
