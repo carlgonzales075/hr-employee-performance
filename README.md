@@ -9,7 +9,7 @@ This project requires Docker to run. The following python packages are also incl
 - `FastAPI` - to serve the ML model as an API service.
 - `MinIO` - serves as a local S3 bucket for storing the artifacts and models created by MLFlow.
 - `PostgreSQL` - used for recording activity trails of the above services.
-
+These services are set to be installed automatically through the `docker-compose`. There is no need to manually install each services separately.
 
 # Dataset
 The dataset can be downloaded here:
