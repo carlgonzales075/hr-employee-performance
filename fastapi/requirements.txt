@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+requests
+boto3
+mlflow
+psycopg2
+python-dotenv
+pydantic
