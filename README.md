@@ -4,6 +4,9 @@ This repository is created as a part of fulfilling the requirements for the cour
 
 This is an HR Employee Performance dataset wherein the main target for the trained models is the employee satisfaction score.
 
+# Dependency
+This project requires Docker to run.
+
 # Dataset
 The dataset can be downloaded here:
 - https://www.kaggle.com/datasets/mexwell/employee-performance-and-productivity-data
@@ -42,6 +45,13 @@ hr_employee_performance/
 ├── setup.cfg
 ├── setup.py
 ```
+# Setup
+Access the project root folder using bash and then run:
+```
+docker-compose up -d --build
+```
+This should create the necessary containers and create the bucket via `minio_init.sh`.
+
 
 # References
 Mexwell. (2024, September 4). 👩🏽 💻 Employee Performance and Productivity Data. Kaggle. https://www.kaggle.com/datasets/mexwell/employee-performance-and-productivity-data
