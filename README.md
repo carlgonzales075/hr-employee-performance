@@ -1,11 +1,15 @@
 # hr_employee_performance
 
 This repository is created as a part of fulfilling the requirements for the course subject ML Operations under Professor Rey Tugade Jr.
-
 This is an HR Employee Performance dataset wherein the main target for the trained models is the employee satisfaction score.
 
 # Dependency
-This project requires Docker to run.
+This project requires Docker to run. The following python packages are also included in this docker environment:
+- `MLFlow` - for ML model registry and monitoring of performance.
+- `FastAPI` - to serve the ML model as an API service.
+- `MinIO` - serves as a local S3 bucket for storing the artifacts and models created by MLFlow.
+- `PostgreSQL` - used for recording activity trails of the above services.
+
 
 # Dataset
 The dataset can be downloaded here:
