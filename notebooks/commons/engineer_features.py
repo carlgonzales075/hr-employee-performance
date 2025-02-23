@@ -207,3 +207,21 @@ def feature_engineered_employee_performance(
         return feature_engineer_prediction(X_data=X_data,
                                     X_scaler=X_scaler,
                                     reset_index=reset_index)
+
+def handle_features(engineered_df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Handle features not needed for training and predictions.
+
+    Parameters
+    ----------
+    engineered_df : pd.DataFrame
+        The dataframe after treatment of feature engineering.
+    
+    Returns
+    -------
+    pd.DataFrame
+        The dataframe that no longer contains the unnecessary features.
+    """
+    drop_features = ['Employee_ID', 'Hire_Date_int']
+    engineered_df.drop(columns=drop_features, inplace=True)
+    return engineered_df

@@ -61,7 +61,7 @@ def plot_residuals(model: object, y_test, y_pred,
 
     return fig
 
-def plot_feature_importance(model):
+def plot_feature_importance(model, feature_names=None):
     """
     Plots feature importance for tree-based models (XGBoost, LightGBM, 
     RandomForest, GradientBoosting).
@@ -71,6 +71,8 @@ def plot_feature_importance(model):
     model : object
         A trained tree-based model (XGBoost, LightGBM, RandomForest, 
         or GradientBoosting).
+    feature_names : list of str, optional
+        List of feature names corresponding to the input features.
 
     Returns
     -------
@@ -88,20 +90,23 @@ def plot_feature_importance(model):
 
     elif isinstance(model, lgb.Booster) or isinstance(model, lgb.LGBMModel):
         importance = model.feature_importance(importance_type="gain")
-        features = model.feature_name_
+        features = feature_names if feature_names else model.feature_name_
         sns.barplot(x=importance, y=features, ax=ax)
         ax.set_title("Feature Importance based on Gain")
 
     elif isinstance(model, (RandomForestRegressor, RandomForestClassifier, 
                             GradientBoostingRegressor, GradientBoostingClassifier)):
         importance = model.feature_importances_
-        features = [f"Feature {i}" for i in range(len(importance))]
-        sns.barplot(x=importance, y=features, ax=ax)
+        if feature_names is None:
+            feature_names = [f"Feature {i}" for i in range(len(importance))]
+        sns.barplot(x=importance, y=feature_names, ax=ax)
         ax.set_title("Feature Importance")
 
     else:
         raise ValueError("Unsupported model type for feature importance plotting.")
 
+    ax.set_xlabel("Importance Score")
+    ax.set_ylabel("Feature")
     plt.tight_layout()
     plt.close(fig)
     
