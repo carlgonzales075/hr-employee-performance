@@ -59,3 +59,4 @@ This should create the necessary containers and will automatically create the S3
 
 # References
 Mexwell. (2024, September 4). 👩🏽 💻 Employee Performance and Productivity Data. Kaggle. https://www.kaggle.com/datasets/mexwell/employee-performance-and-productivity-data
+MLflow with Optuna: Hyperparameter Optimization and Tracking. (n.d.). https://mlflow.org/docs/latest/traditional-ml/hyperparameter-tuning-with-child-runs/notebooks/hyperparameter-tuning-with-child-runs.html

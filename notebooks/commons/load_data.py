@@ -1,7 +1,5 @@
 import pandas as pd
 import os
-import matplotlib.pyplot as plt
-import seaborn as sns
 from pathlib import Path
 from .commons import one_hot_encode, get_features
 from sklearn.preprocessing import StandardScaler
@@ -32,34 +30,6 @@ def transformed_employee_performance(data_df: pd.DataFrame) -> pd.DataFrame:
                                     .astype('int64') // 10**9)
     data_df.drop('Hire_Date', axis=1, inplace=True)
     return data_df
-
-def plot_correlation_with_scores(data_df, save_path=None):
-    """
-    Plots the correlation of each variable in the
-    dataframe with the target column.
-    """
-    target = get_features()['target'][0]
-    correlations = data_df.corr()[target].drop(target).sort_values()
-    colors = sns.diverging_palette(10, 130, as_cmap=True)
-    color_mapped = correlations.map(colors)
-    sns.set_style(
-        "whitegrid", {"axes.facecolor": "#c2c4c2", "grid.linewidth": 1.5}
-    )
-    fig = plt.figure(figsize=(12, 8))
-    plt.barh(correlations.index,
-             correlations.values, color=color_mapped)
-    plt.title(f"Correlation with {target.replace("_", " ")}", fontsize=18)
-    plt.xlabel("Correlation Coefficient", fontsize=16)
-    plt.ylabel("Variable", fontsize=16)
-    plt.xticks(fontsize=14)
-    plt.yticks(fontsize=14)
-    plt.grid(axis="x")
-    plt.tight_layout()
-    if save_path:
-        plt.savefig(save_path, format="png",
-                    dpi=600)
-    plt.close(fig)
-    return fig
 
 def feature_training(
         data_df: pd.DataFrame,

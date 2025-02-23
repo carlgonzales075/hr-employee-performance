@@ -1,4 +1,6 @@
 import pandas as pd
+import tempfile
+import mlflow
 from sklearn.preprocessing import StandardScaler
 
 def get_features():
@@ -40,3 +42,30 @@ def standardize(df, columns: list,
     if return_scaler:
         return standardized_df, scaler
     return standardized_df
+
+
+def log_figure(fig, artifact_path):
+    """
+    Log a matplotlib figure as an artifact in MLflow.
+
+    Parameters
+    ----------
+    fig : matplotlib.figure.Figure
+        Provide the figure object to log.
+    artifact_path : str, optional
+        Specify the filename for the artifact (default is 'figure.png').
+
+    Returns
+    -------
+    None
+        Log the figure as an artifact in the active MLflow run.
+    
+    Notes
+    -----
+    URI setting is assumed to be done outside this function. Set the
+    correct MLFlow URI prior to execution.
+    """
+    with tempfile.TemporaryDirectory() as temp_dir:
+        file_path = f"{temp_dir}/{artifact_path}"
+        fig.savefig(file_path, format="png", dpi=300)
+        mlflow.log_artifact(file_path)
