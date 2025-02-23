@@ -1,6 +1,3 @@
-# To recreate this enviroment use the command below in bash:
-# conda env create -f conda_packages.yaml
-
 name: mlops2025a
 channels:
   - conda-forge
@@ -184,6 +181,7 @@ dependencies:
   - mlflow-ui=2.20.2=py312h2e8e312_0
   - multidict=6.1.0=py312h31fea79_1
   - munkres=1.1.4=pyh9f0ad1d_0
+  - narwhals=1.27.1=pyhd8ed1ab_0
   - nest-asyncio=1.6.0=pyhd8ed1ab_1
   - numpy=2.2.2=py312h3150e54_0
   - nvidia-ml-py=12.570.86=pyhd8ed1ab_0
@@ -203,6 +201,7 @@ dependencies:
   - pip=24.3.1=pyh8b19718_2
   - pixman=0.44.2=had0cd8c_0
   - platformdirs=4.3.6=pyhd8ed1ab_1
+  - plotly=6.0.0=pyhd8ed1ab_0
   - prometheus_client=0.21.1=pyhd8ed1ab_0
   - prometheus_flask_exporter=0.23.1=pyhd8ed1ab_1
   - prompt-toolkit=3.0.50=pyha770c72_0
@@ -325,6 +324,8 @@ dependencies:
       - graphql-core==3.2.5
       - importlib-metadata==8.5.0
       - iniconfig==2.0.0
+      - ipywidgets==8.1.5
+      - jupyterlab-widgets==3.0.13
       - mlops-homework==0.1.0
       - opentelemetry-api==1.29.0
       - opentelemetry-exporter-otlp-proto-common==1.29.0
@@ -344,4 +345,5 @@ dependencies:
       - uritemplate==4.1.1
       - watchfiles==1.0.4
       - websockets==14.2
+      - widgetsnbextension==4.0.13
 prefix: C:\Users\carlg\miniforge3\envs\mlops2025a

@@ -18,7 +18,10 @@ The dataset can be downloaded here:
   
 Once downloaded create a folder in the root folder named: `dataset` and put the .csv file within.
 
-**Update: 
+**Update**:
+Running `download_dataset.py` also downloads and transfers the file in the project. These are some few things to note before running the script:
+- You should have kaggle in your environment and the authentication keys in your kaggle cache. You can follow the steps in using kaggle API in Kaggle.
+- Make sure the script is run on the project root folder. 
 
 # File Structure
 ```
