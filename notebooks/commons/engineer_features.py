@@ -1,40 +1,7 @@
 import pandas as pd
-import os
-from pathlib import Path
 from .commons import one_hot_encode, get_features
 from sklearn.preprocessing import StandardScaler
 
-
-def load_raw_data():
-    """
-    Load the local copy of the raw data.
-    """
-    file_path = os.path.join(
-        Path.cwd().parent,
-        'dataset\\Extended_Employee_Performance_and_Productivity.csv'
-    )
-    # print("Current working directory:", os.getcwd())
-    # file_path = os.path.join(
-    #     os.getcwd(),
-    #     'dataset\\Extended_Employee_Performance_and_Productivity.csv'
-    # )
-    print("Found" if os.path.exists(file_path) else "Not Found")
-    # Check if the file exists before loading
-    if not os.path.exists(file_path):
-        raise FileNotFoundError(f"File not found: {file_path}")
-    
-    data_df = pd.read_csv(file_path)
-    return data_df
-
-def transformed_employee_performance(data_df: pd.DataFrame) -> pd.DataFrame:
-    """
-    Transform data in preparation for feature engineering.
-    """
-    data_df['Hire_Date'] = pd.to_datetime(data_df['Hire_Date'])
-    data_df['Hire_Date_int'] = (data_df['Hire_Date']
-                                    .astype('int64') // 10**9)
-    data_df.drop('Hire_Date', axis=1, inplace=True)
-    return data_df
 
 def feature_training(
         data_df: pd.DataFrame,
@@ -240,4 +207,21 @@ def feature_engineered_employee_performance(
         return feature_engineer_prediction(X_data=X_data,
                                     X_scaler=X_scaler,
                                     reset_index=reset_index)
+
+def handle_features(engineered_df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Handle features not needed for training and predictions.
+
+    Parameters
+    ----------
+    engineered_df : pd.DataFrame
+        The dataframe after treatment of feature engineering.
     
+    Returns
+    -------
+    pd.DataFrame
+        The dataframe that no longer contains the unnecessary features.
+    """
+    drop_features = ['Employee_ID', 'Hire_Date_int']
+    engineered_df.drop(columns=drop_features, inplace=True)
+    return engineered_df

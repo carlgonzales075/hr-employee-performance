@@ -71,6 +71,7 @@ def log_figure(fig, artifact_path):
     with tempfile.TemporaryDirectory() as temp_dir:
         file_path = f"{temp_dir}/{artifact_path}"
         fig.savefig(file_path, format="png", dpi=300)
+<<<<<<< HEAD
         mlflow.log_artifact(file_path)
 
 
@@ -307,3 +308,6 @@ def feature_engineered_employee_performance(
                                     X_scaler=X_scaler,
                                     reset_index=reset_index)
     
+=======
+        mlflow.log_artifact(file_path)
+>>>>>>> 38f7301eacf189707bccdbb04b8b886cd97620ad
