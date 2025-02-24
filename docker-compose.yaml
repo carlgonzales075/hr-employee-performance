@@ -42,7 +42,7 @@ services:
       - MINIO_STORAGE_USE_HTTPS=${MINIO_STORAGE_USE_HTTPS}
       # - MINIO_CONSOLE_ADDRESS=${MINIO_CONSOLE_ADDRESS}
     command: server /data --address :9000 --console-address :9001
-    entrypoint: ["/bin/sh", "-c", "/docker-entrypoint-initaws.d/minio_init.sh && minio server /data --address :9000 --console-address :9001"]
+    entrypoint: ["/bin/sh", "-c", "/docker-entrypoint-initaws.d/minio_init.sh & minio server /data --address :9000 --console-address :9001"]
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
       interval: 30s
